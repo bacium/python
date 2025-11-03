@@ -17,8 +17,9 @@ def music():
         print(f"******上班给的叫工资，摸鱼{i}遍才是赚钱********")
 
 
-t1 = threading.Thread(target=coding)
-t2 = threading.Thread(target=music)
+
 if __name__ == '__main__':
+    t1 = threading.Thread(target=coding)
+    t2 = threading.Thread(target=music)
     t1.start()
     t2.start()

@@ -16,7 +16,7 @@ def music(name, count):
 
 
 if __name__ == '__main__':
-    p1 = multiprocessing.Process(target=coding, args=(("张三", 10)))
+    p1 = multiprocessing.Process(target=coding, args=("张三", 10))
     p2 = multiprocessing.Process(target=music, kwargs={"count": 12, "name": "李四"})
     p1.start()
     p2.start()
