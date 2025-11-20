@@ -13,3 +13,4 @@ elif 28 <= bmi < 32:
     print("重卡")
 elif bmi >= 32:
     print("饥荒制造者")
+
