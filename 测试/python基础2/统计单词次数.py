@@ -7,16 +7,15 @@ str_ = "As your report on White Pollution indicates regulations on the use of pl
 
 def count(string):
     temp = string.split(" ")
-    str_list = []
-    num = 1
+    dict_ = {}
     for word in temp:
-        if word in str_list:
-            num += 1
-            dict_ = {word: num}
+        if word in dict_:
+            dict_[word] += 1
         else:
-            dict_ = {word: num}
-        str_list.append(dict_)
-    print(str_list)
+            dict_[word] = 1
+    with open('./output.txt', "w", encoding="utf-8") as df_stream:
+        for key, value in dict_.items():
+            df_stream.write(f"{key}:{value}\n")
 
 
 if __name__ == "__main__":
