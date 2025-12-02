@@ -15,13 +15,12 @@ prompt_toolkit = st.chat_input("请输入问题")
 if prompt_toolkit:
     # 在session中暂存用户会话内容
     st.session_state["message"].append({"role": "user", "content": prompt_toolkit})
-    print(st.session_state["message"],"999999999999999999")
     for info in st.session_state["message"]:
         # 将用户输入的会话信息显示在页面上
         st.chat_message(info["role"]).markdown(info["content"])
     with st.spinner("加速思考中....."):
         response = client.chat(
-            model="deepseek-r1:8b",
+            model="qwen3:0.6b",
             messages=st.session_state["message"]
         )
         # st.text(response)
