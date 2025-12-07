@@ -7,7 +7,7 @@ import math
 
 
 def generate_self(batch_size):
-    with open('./data/lrc.txt', "r", encoding="utf-8") as def_lrc:
+    with open('data/lrc.txt', "r", encoding="utf-8") as def_lrc:
         lines = def_lrc.readlines()
         rows = math.ceil(len(lines) / batch_size)  # 越看越像分页
         for i in range(rows):

@@ -81,7 +81,7 @@ class StudentCMS:
     def save_student(self):
         # 把学员信息[Student,Student,Student]转化为[{学员信息},{学员信息},{学员信息}]形式！
         student_database = str([student.__dict__ for student in self.studentList])
-        with open("./studentDatabase.txt", "w", encoding="utf-8") as outputStream_txt:
+        with open("studentDatabase.txt", "w", encoding="utf-8") as outputStream_txt:
             outputStream_txt.write(student_database)
             print("学员信息保存成功！")
             print()
@@ -91,7 +91,7 @@ class StudentCMS:
         try:
             # 学员信息从文件中读取出来，然后转化为学员对象形式
             with open(
-                    "./studentDatabase.txt", "r", encoding="utf-8"
+                    "studentDatabase.txt", "r", encoding="utf-8"
             ) as inputStream_txt:
                 student_database = inputStream_txt.read()
                 if student_database == "":
@@ -108,7 +108,7 @@ class StudentCMS:
                     for student in studentList
                 ]
         except:
-            outputStream = open("./studentDatabase.txt", "w", encoding="utf-8")
+            outputStream = open("studentDatabase.txt", "w", encoding="utf-8")
             outputStream.close()
 
     # 开始服务
