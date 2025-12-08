@@ -40,3 +40,5 @@ plt.xlabel('K')
 plt.ylabel('Accuracy')
 plt.title('K值对预测精度的影响')
 plt.show()
+
+
