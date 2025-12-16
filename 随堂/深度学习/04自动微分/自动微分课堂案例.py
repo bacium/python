@@ -12,7 +12,7 @@ print(f"w.grad:{w.grad}")
 
 
 # 使用梯度下降法更新参数w，学习率为0.01
-w=w-0.01*w.grad
+w.data=w.data-0.01*w.grad
 
 print(f"新值w:{w:.5f}")
 
