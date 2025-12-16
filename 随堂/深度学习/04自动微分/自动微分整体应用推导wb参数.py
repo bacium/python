@@ -7,26 +7,31 @@ print(f"x:{x}")
 # 创建一个变量y
 y = torch.zeros(2, 3)
 print(f"y:{y}")
+
 # 创建一个变量w
 w = torch.randn(5, 3, requires_grad=True, dtype=torch.float)
 print(f"w:{w}")
+
 # 创建一个变量b
 b = torch.randn(3, requires_grad=True, dtype=torch.float)
 print(f"b:{b}")
 
+# 计算线性变换 z = xw + b
 z = x @ w + b
 print(f"z:{z}")
 
+# 定义损失函数为均方误差
 loss_fn = torch.nn.MSELoss()
 
+# 计算预测值z与真实值y之间的损失
 loss = loss_fn(z, y)
 
+# 反向传播计算梯度
 loss.mean().backward()
 print(f"w.grad:{w.grad}")
 
+# 使用梯度下降法更新参数w和b
 w.data = w.data - 0.01 * w.grad
 b.data = b.data - 0.01 * b.grad
 print(f"w:{w}")
 print(f"b:{b}")
-
-
