@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 import torch
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
 from torch.utils.data import TensorDataset, DataLoader
 
 
@@ -29,9 +30,12 @@ def load_data_source(batch_size):
     # print("后面", x_train.dtypes, y_train.dtypes)
     # 分割数据
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
+    scaler = StandardScaler()
+    x_train = scaler.fit_transform(x_train)
+    x_test = scaler.transform(x_test)
     # 转换为张量, 并创建数据集对象
-    trainDataSet = TensorDataset(torch.from_numpy(x_train.values), torch.from_numpy(y_train.values))
-    testDataSet = TensorDataset(torch.from_numpy(x_test.values), torch.from_numpy(y_test.values))
+    trainDataSet = TensorDataset(torch.from_numpy(x_train), torch.from_numpy(y_train.values))
+    testDataSet = TensorDataset(torch.from_numpy(x_test), torch.from_numpy(y_test.values))
     # print(trainDataSet)
     # print(trainDataSet[0])
     trainDataLoder = DataLoader(dataset=trainDataSet, batch_size=batch_size, shuffle=True)
@@ -145,7 +149,7 @@ if __name__ == '__main__':
     model = MobilePricePrediction(input_size, output_size)
     # print(model)
     # 3 训练模型
-    epochs =100  # 训练轮次
+    epochs =34  # 训练轮次
     train_model(trainDataLoder, model, epochs)
     # 4 模型评估
     exal_model(testDataLoder, input_size, output_size)
