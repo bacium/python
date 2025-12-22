@@ -1,4 +1,4 @@
-from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.text import Tokenizer # pyright: ignore[reportMissingImports]
 import joblib
 
 
