@@ -30,6 +30,6 @@ def dm1():
     jieba.load_userdict("./dict/usedict.txt")
     result = jieba.lcut(sentence=content)
     print(f"result{result}")
-
+    print("测试数据")
 if __name__ == '__main__':
     dm1()
