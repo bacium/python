@@ -2,3 +2,5 @@
 .vscode/
 .DS_Store
 models/
+# 过滤models下的文件
+
