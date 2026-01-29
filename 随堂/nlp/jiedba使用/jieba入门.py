@@ -14,22 +14,22 @@ def dm1():
     words = jieba.cut(sentence=content, cut_all=True)
     # print(list(words))
     # print(" ".join(list(words)))
-    text=jieba.lcut(sentence=content,cut_all=False)
+    text = jieba.lcut(sentence=content, cut_all=False)
     # print(text)
-
 
     # 按搜索引擎进行拆分
     text = jieba.cut_for_search(sentence=content)
     print(" ".join(list(text)))
     # 繁体拆分
-    content2="煩惱即是菩提，我暫且不提"
+    content2 = "煩惱即是菩提，我暫且不提"
     text = jieba.lcut(sentence=content2)
     print(" ".join(list(text)))
-
 
     jieba.load_userdict("./dict/usedict.txt")
     result = jieba.lcut(sentence=content)
     print(f"result{result}")
     print("测试数据")
+
+
 if __name__ == '__main__':
     dm1()
